@@ -9,11 +9,16 @@ namespace MyMediaPlayer
 {
 	public partial class App : Application
 	{
-		public App()
+		private App()
+		{
+			InitializeComponent();
+		}
+
+		public App(string videoUrl)
 		{
 			InitializeComponent();
 
-			MainPage = new MyMediaPlayer.MainPage();
+			MainPage = new MyMediaPlayer.MainPage(videoUrl);
 		}
 
 		protected override void OnStart()

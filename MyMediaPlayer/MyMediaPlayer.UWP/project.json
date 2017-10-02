@@ -1,6 +1,8 @@
 ﻿{
   "dependencies": {
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0",
+    "Plugin.MediaManager": "0.4.3",
+    "Plugin.MediaManager.Forms": "0.4.3",
     "Xamarin.Forms": "2.4.0.282"
   },
   "frameworks": {
