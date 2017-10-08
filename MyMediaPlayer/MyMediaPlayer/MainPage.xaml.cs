@@ -19,7 +19,6 @@ namespace MyMediaPlayer
 		{
 			InitializeComponent();
 			mVideoPath = videoPath;
-			player.Source = mVideoPath;
 		}
 
 		private void OnPauseClicked(object sender, EventArgs e)

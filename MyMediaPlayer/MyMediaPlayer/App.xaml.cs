@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.MediaManager.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,8 @@ namespace MyMediaPlayer
 
 		public App(string videoUrl)
 		{
+			// Make sure it doesn't get stripped away by the linker
+			var workaround = typeof(VideoView);
 			InitializeComponent();
 
 			MainPage = new MyMediaPlayer.MainPage(videoUrl);

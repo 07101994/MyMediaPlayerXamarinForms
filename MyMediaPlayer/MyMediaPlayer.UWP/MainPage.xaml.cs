@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.MediaManager.Forms.UWP;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -20,8 +21,9 @@ namespace MyMediaPlayer.UWP
 		public MainPage()
 		{
 			this.InitializeComponent();
-
-			LoadApplication(new MyMediaPlayer.App());
+			//VideoViewRenderer.Init();
+			//C:\\Users\\Tushar\\Videos\\intro_lesson_1.Introduction.mp4
+			LoadApplication(new MyMediaPlayer.App("http://techslides.com/demos/sample-videos/small.mp4"));
 		}
 	}
 }
