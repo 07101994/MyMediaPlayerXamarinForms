@@ -108,6 +108,10 @@
     <None Include="MyMediaPlayer.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\icon.png" />
+    <Content Include="Assets\ic_pause.png" />
+    <Content Include="Assets\ic_play.png" />
+    <Content Include="Assets\ic_stop.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-100.png" />
     <Content Include="Assets\LockScreenLogo.scale-125.png" />
@@ -152,9 +156,21 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\MediaManagerGit\XamarinMediaManager\MediaManager.Abstractions\Plugin.MediaManager.Abstractions.csproj">
+      <Project>{6edb0588-ffc5-4ef5-8a99-9e241d0f878d}</Project>
+      <Name>Plugin.MediaManager.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\MediaManagerGit\XamarinMediaManager\MediaManager\Plugin.MediaManager.csproj">
+      <Project>{a6fcef44-d2ba-42c7-b3cb-13667bcd7b54}</Project>
+      <Name>Plugin.MediaManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyMediaPlayer\MyMediaPlayer.csproj">
       <Project>{1694e920-35e2-480f-bb0a-149d7c6d8911}</Project>
       <Name>MyMediaPlayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plugin.MediaManager.Forms\Plugin.MediaManager.Forms.csproj">
+      <Project>{d2c446f5-b3de-4729-8040-f213c98f2411}</Project>
+      <Name>Plugin.MediaManager.Forms</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

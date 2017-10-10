@@ -1,27 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+﻿using System.IO;
 
 namespace MyMediaPlayer.UWP
 {
 	public sealed partial class MainPage
 	{
+		private string mPath = "C:\\Users\\Tushar\\Videos\\intro_lesson_1.Introduction.mp4";
+
 		public MainPage()
 		{
 			this.InitializeComponent();
+			
+			//if (File.Exists(mPath))
+			//{
+				LoadApplication(new MyMediaPlayer.App(mPath));
+			//}
+		}
 
-			LoadApplication(new MyMediaPlayer.App());
+		private bool FileExists()
+		{
+			return File.Exists(mPath);
 		}
 	}
 }
