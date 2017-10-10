@@ -29,9 +29,9 @@ namespace MyMediaPlayer.Droid
 			TaskScheduler.UnobservedTaskException += TaskSchedulerOnUnobservedTaskException;
 			AndroidEnvironment.UnhandledExceptionRaiser += AndroidEnvironmentOnUnhandledException;
 
-			global::Xamarin.Forms.Forms.Init(this, bundle);
 			Plugin.MediaManager.Forms.Android.VideoViewRenderer.Init();
-
+			global::Xamarin.Forms.Forms.Init(this, bundle);
+			
 			string videoPath = GetVideoUrl();
 			LoadApplication(new App(videoPath));
 		}
@@ -57,7 +57,7 @@ namespace MyMediaPlayer.Droid
 			string videoPath = null;
 			if (string.IsNullOrWhiteSpace(Intent.DataString))
 			{
-				videoPath = "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
+				videoPath = "http://techslides.com/demos/sample-videos/small.mp4";
 			}
 			else
 			{
