@@ -1,18 +1,16 @@
-﻿using System;
-
-using Android.App;
-using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Android.OS;
-using System.Threading.Tasks;
+﻿using Android.App;
 using Android.Content;
-using Android.Content.Res;
+using Android.Content.PM;
+using Android.OS;
+using Android.Runtime;
+using Android.Widget;
+using MyMediaPlayer.Standard;
+using System;
+using System.Threading.Tasks;
 
 namespace MyMediaPlayer.Droid
 {
-	[Activity(Label = "MyMediaPlayer", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+	[Activity(Label = "MyMediaPlayer", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation =ScreenOrientation.Landscape, ClearTaskOnLaunch =true, LaunchMode =LaunchMode.SingleInstance)]
 	[IntentFilter(new[] { Intent.ActionView }, DataScheme = "rtsp", DataHost = "*", Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable }, Icon = "@drawable/icon")]
 	[IntentFilter(new[] { Intent.ActionView }, DataMimeTypes = new string[] { "video/*", "application/sdp" }, Categories = new[] { Intent.CategoryDefault }, Icon = "@drawable/icon")]
 	[IntentFilter(new[] { Intent.ActionView }, DataScheme = "http", DataMimeTypes = new string[] { "video/*" }, Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable }, Icon = "@drawable/icon")]

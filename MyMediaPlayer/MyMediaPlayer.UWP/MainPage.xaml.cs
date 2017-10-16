@@ -23,7 +23,7 @@ namespace MyMediaPlayer.UWP
 			this.InitializeComponent();
 			//VideoViewRenderer.Init();
 			//C:\\Users\\Tushar\\Videos\\intro_lesson_1.Introduction.mp4
-			LoadApplication(new MyMediaPlayer.App("http://techslides.com/demos/sample-videos/small.mp4"));
+			LoadApplication(new MyMediaPlayer.Standard.App("http://techslides.com/demos/sample-videos/small.mp4"));
 		}
 	}
 }

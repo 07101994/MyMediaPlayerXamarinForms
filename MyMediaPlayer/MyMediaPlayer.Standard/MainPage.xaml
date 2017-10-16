@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:MyMediaPlayer"
+             xmlns:local="clr-namespace:MyMediaPlayer.Standard"
 			 xmlns:forms="clr-namespace:Plugin.MediaManager.Forms;assembly=Plugin.MediaManager.Forms"
-             x:Class="MyMediaPlayer.MainPage">
+             x:Class="MyMediaPlayer.Standard.MainPage">
 
 	<Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 		<forms:VideoView x:Name="player"

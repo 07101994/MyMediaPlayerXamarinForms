@@ -1,12 +1,8 @@
 ﻿using Plugin.MediaManager.Forms;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using Xamarin.Forms;
 
-namespace MyMediaPlayer
+namespace MyMediaPlayer.Standard
 {
 	public partial class App : Application
 	{
@@ -21,7 +17,7 @@ namespace MyMediaPlayer
 			var workaround = typeof(VideoView);
 			InitializeComponent();
 
-			MainPage = new MyMediaPlayer.MainPage(videoUrl);
+			MainPage = new MyMediaPlayer.Standard.MainPage(videoUrl);
 		}
 
 		protected override void OnStart()
