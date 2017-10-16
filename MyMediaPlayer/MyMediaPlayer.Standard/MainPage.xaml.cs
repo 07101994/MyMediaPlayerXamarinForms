@@ -1,14 +1,16 @@
 ﻿using Plugin.MediaManager;
+using Plugin.MediaManager.Abstractions;
 using Plugin.MediaManager.Abstractions.Enums;
 using Plugin.MediaManager.Abstractions.EventArguments;
 using System;
 using Xamarin.Forms;
 
-namespace MyMediaPlayer
+namespace MyMediaPlayer.Standard
 {
 	public partial class MainPage : ContentPage
 	{
 		private string mVideoPath;
+		private IPlaybackController PlaybackController => CrossMediaManager.Current.PlaybackController;
 
 		private MainPage()
 		{
@@ -23,20 +25,23 @@ namespace MyMediaPlayer
 
 		private void OnPauseClicked(object sender, EventArgs e)
 		{
-			CrossMediaManager.Current.Pause();
+			PlaybackController.Pause();
+			//CrossMediaManager.Current.Pause();
 			pause.IsEnabled = false;
 		}
 
 		private void OnStopClicked(object sender, EventArgs e)
 		{
-			CrossMediaManager.Current.Stop();
+			//CrossMediaManager.Current.Stop();
+			PlaybackController.Stop();
 			pause.IsEnabled = false;
 			stop.IsEnabled = false;
 		}
 
 		private async void OnPlayClicked(object sender, EventArgs e)
 		{
-			await CrossMediaManager.Current.VideoPlayer.Play();
+			await PlaybackController.Play();
+			//await CrossMediaManager.Current.VideoPlayer.Play();
 			pause.IsEnabled = true;
 			stop.IsEnabled = true;
 		}
@@ -44,8 +49,9 @@ namespace MyMediaPlayer
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
-			
-			CrossMediaManager.Current.Stop();
+
+			PlaybackController.Stop();
+			//CrossMediaManager.Current.Stop();
 			CrossMediaManager.Current.StatusChanged += CurrentOnStatusChanged;
 			CrossMediaManager.Current.PlayingChanged += OnPlayingChanged;
 			player.Source = mVideoPath;
@@ -73,12 +79,14 @@ namespace MyMediaPlayer
 		protected override void OnDisappearing()
 		{
 			base.OnDisappearing();
-			CrossMediaManager.Current.Stop();
+			PlaybackController.Stop();
+			//CrossMediaManager.Current.Stop();
 			play.Clicked -= OnPlayClicked;
 			stop.Clicked -= OnStopClicked;
 			pause.Clicked -= OnPauseClicked;
 			CrossMediaManager.Current.StatusChanged -= CurrentOnStatusChanged;
 			CrossMediaManager.Current.PlayingChanged -= OnPlayingChanged;
+			
 		}
 
 		private void CurrentOnStatusChanged(object sender, StatusChangedEventArgs statusChangedEventArgs)

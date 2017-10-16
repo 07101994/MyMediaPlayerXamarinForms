@@ -1,0 +1,3 @@
+[submodule "MediaManager"]
+	path = MediaManager
+	url = https://github.com/martijn00/XamarinMediaManager
