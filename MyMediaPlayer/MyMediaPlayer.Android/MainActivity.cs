@@ -10,12 +10,14 @@ using System.Threading.Tasks;
 
 namespace MyMediaPlayer.Droid
 {
-	[Activity(Label = "MyMediaPlayer", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation =ScreenOrientation.Landscape, ClearTaskOnLaunch =true, LaunchMode =LaunchMode.SingleInstance)]
+	[Activity(Label = "MyMediaPlayer", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Landscape, ClearTaskOnLaunch = true, LaunchMode = LaunchMode.SingleInstance)]
 	[IntentFilter(new[] { Intent.ActionView }, DataScheme = "rtsp", DataHost = "*", Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable }, Icon = "@drawable/icon")]
 	[IntentFilter(new[] { Intent.ActionView }, DataMimeTypes = new string[] { "video/*", "application/sdp" }, Categories = new[] { Intent.CategoryDefault }, Icon = "@drawable/icon")]
 	[IntentFilter(new[] { Intent.ActionView }, DataScheme = "http", DataMimeTypes = new string[] { "video/*" }, Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable }, Icon = "@drawable/icon")]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
 	{
+		//private IMediaManager mediaManager;
+
 		protected override void OnCreate(Bundle bundle)
 		{
 			TabLayoutResource = Resource.Layout.Tabbar;
@@ -29,7 +31,13 @@ namespace MyMediaPlayer.Droid
 
 			Plugin.MediaManager.Forms.Android.VideoViewRenderer.Init();
 			global::Xamarin.Forms.Forms.Init(this, bundle);
-			
+
+			//mediaManager = CrossMediaManager.Current;
+
+			//((MediaManagerImplementation)CrossMediaManager.Current).MediaSessionManager = new MediaSessionManager(Application.Context, typeof(ExoPlayerAudioService), CrossMediaManager.Current);
+			//var exoPlayer = new ExoPlayerAudioImplementation(((MediaManagerImplementation)CrossMediaManager.Current).MediaSessionManager);
+			//CrossMediaManager.Current.AudioPlayer = exoPlayer;
+
 			string videoPath = GetVideoUrl();
 			LoadApplication(new App(videoPath));
 		}
