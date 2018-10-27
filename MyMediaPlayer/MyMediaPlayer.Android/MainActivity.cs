@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MyMediaPlayer.Droid
 {
-	[Activity(Label = "MyMediaPlayer", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Landscape, ClearTaskOnLaunch = true, LaunchMode = LaunchMode.SingleInstance)]
+	[Activity(Label = "MyMediaPlayer", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Landscape, ClearTaskOnLaunch = true, LaunchMode = LaunchMode.SingleInstance)]
 	[IntentFilter(new[] { Intent.ActionView }, DataScheme = "rtsp", DataHost = "*", Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable }, Icon = "@drawable/icon")]
 	[IntentFilter(new[] { Intent.ActionView }, DataMimeTypes = new string[] { "video/*", "application/sdp" }, Categories = new[] { Intent.CategoryDefault }, Icon = "@drawable/icon")]
 	[IntentFilter(new[] { Intent.ActionView }, DataScheme = "http", DataMimeTypes = new string[] { "video/*" }, Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable }, Icon = "@drawable/icon")]
